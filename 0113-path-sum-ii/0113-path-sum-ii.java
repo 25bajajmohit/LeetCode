@@ -30,12 +30,14 @@ class Solution {
         {
             if(sum==target)
             {
-                ans.add(al);
+                ans.add(new ArrayList<>(al));
             }
+            al.remove(al.size()-1);
             return;
         }
-        solve(root.left,sum,target,new ArrayList<>(al),ans);
-        solve(root.right,sum,target,new ArrayList<>(al),ans);
+        solve(root.left,sum,target,al,ans);
+        solve(root.right,sum,target,al,ans);
+        al.remove(al.size()-1);
         
     }
 }
